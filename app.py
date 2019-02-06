@@ -130,9 +130,13 @@ def results():
                            latitude=latitude,
                            longitude=longitude)
 
+#if __name__ == '__main__':
+#    app.run()
+#    gunicorn_logger = logging.getLogger('gunicorn.error')
+#    app.logger.handlers = gunicorn_logger.handlers
+#    app.logger.setLevel(gunicorn_logger.level)
+    
 if __name__ == '__main__':
-    app.run()
-    gunicorn_logger = logging.getLogger('gunicorn.error')
-    app.logger.handlers = gunicorn_logger.handlers
-    app.logger.setLevel(gunicorn_logger.level)
+    #this runs your app locally
+    app.run(host='0.0.0.0', port=8080, debug=True)
 
