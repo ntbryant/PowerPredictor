@@ -1,0 +1,118 @@
+<!-- A really basic homepage. -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Off-Grid Power</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/creative.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+      <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="https://github.com/ntbryant/PowerPredictor">Github</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="mailto:nicktb@pdx.edu">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+      <!-- Main form -->
+
+    <header class="masthead text-center text-black d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Off-Grid Power Predictor</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="mb-7 text-white">Forecasting Solar Power Production</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+
+     <!-- location and system specs -->
+
+          <p class="text-faded mb-5">
+           <form action='/results', method='POST'>
+             <label for="location">
+               <label for="loc">Input US Location (Ex: Arcata, CA)</label>
+			          <input class="input" type="text" name="location">
+                </label>
+
+                <br><br>
+
+                <label for="size">
+                <label for="size">Input System Size in Kilowatts (Ex: 5)</label>
+   			          <input class="input" type="text" name="size_input">
+                </label>
+
+  				<br><br>
+
+            <br><br>
+            <button class="btn btn-primary btn-xl js-scroll-trigger" type="submit">Power Prediction</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="static/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="static/js/creative.min.js"></script>
+
+  </body>
+</html>
