@@ -78,5 +78,5 @@ vignettes/*.pdf
 
 # APIs
 config.io
-config.py
+#config.py
 .Rproj.user
