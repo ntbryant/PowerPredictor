@@ -49,7 +49,7 @@ def get_pvlib_data(latitude, longitude, tz, altitude, city, start_time, end_time
     
     # getting clearsky estimates
     loc = Location(latitude, longitude, tz, altitude, city)
-    times = pd.DatetimeIndex(start=start_time, end=end_time, freq='H', tz=loc.tz)
+    times = pd.date_range(start=start_time, end=end_time, freq='H', tz=loc.tz)
     cs = loc.get_clearsky(times)
     
     # getting pvlib forecasted irradiance based on cloud_cover
