@@ -101,8 +101,10 @@ def results():
     # calculating energy as integral of power curve
     solar_energy = results_by_date.apply(lambda x: -trapz(x['hour'], x['GHI_pred']))
     max_power = results_by_date.apply(lambda x: max(x['GHI_pred']))
-    power_values = results_by_date.apply(lambda x: x[x['GHI_pred'] > 0]).groupby('day')
-    avg_power = power_values['GHI_pred'].mean()
+    power_values = results_by_date.apply(lambda x: x[x['GHI_pred'] > 0])
+    power_values.index = pd.to_datetime(power_values['datetime'])
+    power_by_date = power_values.groupby('date')
+    avg_power = power_by_date['GHI_pred'].mean()
     sys_energy = solar_energy * size_input * 0.77
     energy = pd.DataFrame({
             'solar_energy' : solar_energy,

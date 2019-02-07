@@ -29,5 +29,3 @@ def make_plot(energy):
     plot.legend.border_line_alpha = 0.5
     script, div = components(plot)
     return script, div
-
-#x_axis_type='datetime',
