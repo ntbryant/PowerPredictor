@@ -39,7 +39,7 @@ def results():
     try:
         location_input = request.form.get('location')
     except:
-        location_input = "Portland, OR"
+        location_input = "Boulder, CO"
 
     try:
         size_input = float(request.form.get('size_input'))
@@ -99,7 +99,7 @@ def results():
     results_by_date = results.groupby('date')
     
     # calculating energy as integral of power curve
-    solar_energy = results_by_date.apply(lambda x: -trapz(x['hour'], x['GHI_pred']))
+    solar_energy = results_by_date.apply(lambda x: abs(trapz(x['hour'], x['GHI_pred'])))
     max_power = results_by_date.apply(lambda x: max(x['GHI_pred']))
     power_values = results_by_date.apply(lambda x: x[x['GHI_pred'] > 0])
     power_values.index = pd.to_datetime(power_values['datetime'])
