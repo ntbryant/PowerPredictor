@@ -5,7 +5,7 @@ Created on Wed Jan 23 14:27:32 2019
 @author: ntbryant
 """
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 import pandas as pd
 import geopy
 from geopy.geocoders import Nominatim
@@ -23,7 +23,7 @@ import pvlib_irradiances as pv
 import predict_irradiance as pred
 import plot_maker as pm
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 @app.route('/')
 @app.route('/index')
@@ -129,6 +129,10 @@ def results():
                            plotdiv=plotdiv,
                            latitude=latitude,
                            longitude=longitude)
+    
+@app.route('/slides')
+def send_slides():
+    return send_from_directory(app.static_folder, 'slides.pdf')
 
 #if __name__ == '__main__':
 #    app.run()
