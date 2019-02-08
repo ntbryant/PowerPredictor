@@ -53,7 +53,7 @@ def results():
 
     # convert location to latitude and longitude
     geolocator = Nominatim(user_agent="powerpredictor")
-    geopy.geocoders.options.default_timeout = 15
+    geopy.geocoders.options.default_timeout = 30
     location = geolocator.geocode(location_input)
     latitude = location.latitude
     longitude = location.longitude

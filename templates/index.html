@@ -25,6 +25,34 @@
     <!-- Custom styles for this template -->
     <link href="static/css/creative.min.css" rel="stylesheet">
 
+    <!-- lovingly handcrafted vanilla js for form validation -->
+    <script type="text/javascript">
+    function validateForm() {
+        console.log("running validateForm()");
+        var location = document.forms["user_input"]["location"].value;
+        if (location == "") {
+            alert("Please enter a US city and state abbreviation (i.e., Houston, TX)");
+            return false;
+        }
+        var loccomma = location.match(/\,/);
+        if (loccomma == null) {
+            alert("Please enter a US city and state abbreviation (i.e., Houston, TX)");
+            return false;
+        }
+
+        var size = document.forms["user_input"]["size"].value;
+        if (size == "") {
+            alert("System size must be provided");
+            return false;
+        }
+        var sizematches = size.match(/\d+/g);
+        if (sizematches == null) {
+            alert("Please enter a number");
+            return false;
+        }
+    }
+    </script>
+
   </head>
 
   <body id="page-top">
@@ -68,7 +96,7 @@
             <br>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="mb-10 text-faded">Forecasting Solar Power Production</p>
+            <p class="mb-12 text-white">Forecasting Solar Power Production</p>
           </div>
         </div>
       </div>
@@ -82,18 +110,17 @@
      <!-- location and system specs -->
 
           <p class="text-faded mb-5">
-           <form action='/results', method='POST'>
+           <form name="user_input" action='/results', method='POST' onsubmit="return validateForm()">
              <label for="location">
-               <label for="loc">Input US Location (Ex: Arcata, CA)</label>
-			          <input class="input" type="text" name="location">
-                </label>
-
+               <label for="location" class="text-faded">Input a city and state in the United States</label>
+			            <input class="form-control" id="location" type="text" name="location" placeholder="Ex: Arcata, CA">
+            </label>
                 <br><br>
 
-                <label for="size">
-                <label for="size">Input System Size in Kilowatts (Ex: 5)</label>
-   			          <input class="input" type="text" name="size_input">
-                </label>
+            <label for="size">
+                <label for="size" class="text-faded">Input the system size in kilowatts (kW)</label>
+   			          <input class="form-control" id="size" type="text" name="size" placeholder="Ex: 3.5">
+            </label>
 
   				<br><br>
 
