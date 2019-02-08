@@ -73,8 +73,8 @@ def get_pvlib_data(latitude, longitude, tz, altitude, city, start_time, end_time
     irrad_data = model.cloud_cover_to_irradiance(data['total_clouds'])
     
     # correcting timezone
-    data.index = data.index.tz_convert('America/Los_Angeles')
-    irrad_data.index = irrad_data.index.tz_convert('America/Los_Angeles')
+    data.index = data.index.tz_convert(loc.tz)
+    irrad_data.index = irrad_data.index.tz_convert(loc.tz)
     
     # joining cloud_cover and irradiance data frames
     data = data.join(irrad_data, how='outer')
@@ -103,7 +103,7 @@ def get_pvlib_data(latitude, longitude, tz, altitude, city, start_time, end_time
     return(data)
 
 
-#location_input = 'Arcata, CA'
+#location_input = 'Hackberry, AZ'
 #
 ## convert location to latitude and longitude
 #geolocator = Nominatim(user_agent="powerpredictor")

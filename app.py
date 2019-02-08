@@ -37,12 +37,12 @@ def results():
     try:
         location_input = request.form.get('location')
     except:
-        location_input = "Portland, OR"
+        location_input = "Arcata, CA"
 
     try:
         size_input = float(request.form.get('size_input'))
     except:
-        size_input = 5
+        size_input = 3.5
 
     # creating location characteristics
     city, state = location_input.split(',')

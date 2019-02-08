@@ -42,8 +42,8 @@ def get_nsrdb_data(lat, lon, api_key):
              'GHI_nsrdb', 'DHI_nsrdb', 'DNI_nsrdb']]
     return(df)
 
-latitude = 40.8665166
-longitude = -124.0828396
-api_key = secret.nrel_api_key
+#latitude = 40.8665166
+#longitude = -124.0828396
+#api_key = secret.nrel_api_key
 
 #nrel_data = get_nsrdb_data(latitude, longitude, secret.nrel_api_key)
