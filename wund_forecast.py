@@ -13,8 +13,8 @@ import config as secret
 # get weather forecast
 def get_forecast(city, state, api_key):
     
-    response = requests.get('http://api.wunderground.com/api/{api_key}/hourly10day/q/{state}/{city}.json'.
-                            format(api_key=api_key, state=state, city=city)).json()
+    response = requests.get('http://api.wunderground.com/api/{api_key}/hourly10day/q/{state}/{city}.json'.format(api_key=api_key, state=state, city=city)).json()
+    
     forecast = json_normalize(data=response['hourly_forecast'],
                               meta=[['FCTTIME','year', 'mon_padded', 'mday_padded', 'weekday_name_abrev'],
                                     'condition', 

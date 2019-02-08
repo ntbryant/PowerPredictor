@@ -6,9 +6,7 @@ Created on Wed Jan 23 14:27:32 2019
 """
 
 from flask import Flask, request, render_template
-#from powerpredictor import app
 import pandas as pd
-
 import geopy
 from geopy.geocoders import Nominatim
 from timezonefinder import TimezoneFinder
@@ -39,7 +37,7 @@ def results():
     try:
         location_input = request.form.get('location')
     except:
-        location_input = "Boulder, CO"
+        location_input = "Portland, OR"
 
     try:
         size_input = float(request.form.get('size_input'))
@@ -48,8 +46,8 @@ def results():
 
     # creating location characteristics
     city, state = location_input.split(',')
-    city.strip()
-    state.strip()
+    city = city.strip()
+    state = state.strip()
 
     tf = TimezoneFinder()
 
