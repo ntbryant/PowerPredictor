@@ -40,7 +40,7 @@ def results():
         location_input = "Arcata, CA"
 
     try:
-        size_input = float(request.form.get('size_input'))
+        size_input = float(request.form.get('size'))
     except:
         size_input = 3.5
 
