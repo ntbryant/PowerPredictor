@@ -18,7 +18,7 @@ def make_plot(energy):
                   x_axis_type = 'datetime',
                   plot_width=650, plot_height=300)
     plot.xaxis.axis_label = 'Date'
-    plot.yaxis.axis_label = 'Predicted System Output (kWh)'
+    plot.yaxis.axis_label = 'Predicted System Output (Wh)'
     plot.line(energy.index, energy['sys_energy'], color="orangered", legend = 'Predicted Energy', line_width=3)
     # Create 2nd y-axis
     plot.extra_y_ranges['max_power'] = Range1d(start=0, end=1050)
