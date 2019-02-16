@@ -53,7 +53,7 @@ def results():
 
     # convert location to latitude and longitude
     geolocator = Nominatim(user_agent="powerpredictor")
-    geopy.geocoders.options.default_timeout = 30
+    geopy.geocoders.options.default_timeout = 60
     location = geolocator.geocode(location_input)
     latitude = location.latitude
     longitude = location.longitude
@@ -123,7 +123,8 @@ def results():
     # average power per day
     power_average = (energy['sys_energy'].mean() / 1000).round(2)
 
-    return render_template('results.html', MESSAGE_MID=power_average,
+    return render_template('results.html',
+                           MESSAGE_MID=power_average,
                            size_input=size_input,
                            plotscript=plotscript,
                            plotdiv=plotdiv,
@@ -134,13 +135,6 @@ def results():
 def send_slides():
     return send_from_directory(app.static_folder, 'slides.pdf')
 
-#if __name__ == '__main__':
-#    app.run()
-#    gunicorn_logger = logging.getLogger('gunicorn.error')
-#    app.logger.handlers = gunicorn_logger.handlers
-#    app.logger.setLevel(gunicorn_logger.level)
-    
 if __name__ == '__main__':
     #this runs your app locally
     app.run(host='0.0.0.0', port=8080, debug=True)
-
