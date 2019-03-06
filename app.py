@@ -135,6 +135,6 @@ def results():
 def send_slides():
     return send_from_directory(app.static_folder, 'slides.pdf')
 
-if __name__ == '__main__':
-    #this runs your app locally
-    app.run(host='0.0.0.0', port=8080, debug=True)
+#if __name__ == '__main__':
+#    #this runs your app locally
+#    app.run(host='0.0.0.0', port=8080, debug=True)
