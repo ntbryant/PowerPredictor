@@ -62,7 +62,7 @@ def get_forecast(city, state, api_key):
     
     return(forecast)
     
-#city = 'Arcata'
-#state = 'CA'
-#api_key = secret.wund_api_key
-#wund_data = get_forecast(city, state, secret.wund_api_key)
+city = 'Arcata'
+state = 'CA'
+api_key = secret.wund_api_key
+wund_data = get_forecast(city, state, secret.wund_api_key)

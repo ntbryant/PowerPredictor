@@ -18,7 +18,7 @@ from scipy.integrate import simps
 from numpy import trapz
 import config
 import nsrdb_historical as nsrdb
-import wund_forecast as wund
+import ds_forecast as ds
 import pvlib_irradiances as pv
 import predict_irradiance as pred
 import plot_maker as pm
@@ -64,11 +64,11 @@ def results():
     nsrdb_data = nsrdb.get_nsrdb_data(latitude, longitude, config.nrel_api_key)
 
     # get weather forecast
-    wund_data = wund.get_forecast(city, state, config.wund_api_key)
+    ds_data = ds.get_forecast(latitude, longitude, config.ds_key)
 
     # get pvlib irradiances
-    start_time = wund_data['datetime'].min()
-    end_time = wund_data['datetime'].max()
+    start_time = ds_data['datetime'].min()
+    end_time = ds_data['datetime'].max()
     pvlib_data = pv.get_pvlib_data(latitude,
                                     longitude,
                                     tzone,
@@ -78,8 +78,10 @@ def results():
                                     end_time)
 
     # merging forecast and nsrdb data
-    wund_data[['month', 'day', 'hour']] = wund_data[['month', 'day', 'hour']].apply(pd.to_numeric)
-    data = pd.merge(wund_data, nsrdb_data,
+    ds_data['month'] = ds_data['datetime'].dt.month
+    ds_data['day'] = ds_data['datetime'].dt.day
+    ds_data['hour'] = ds_data['datetime'].dt.hour
+    data = pd.merge(ds_data, nsrdb_data,
                     on=['month', 'day', 'hour'],
                     how='left')
 
